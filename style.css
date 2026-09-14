@@ -268,6 +268,29 @@ tbody td {
 .status-noshow     { color: #e67e22; }
 .status-booked     { color: var(--green-light); }
 
+/* ── Filter buttons ── */
+.filter-btn {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+.filter-btn:hover {
+  border-color: var(--green-light);
+  color: var(--green);
+}
+
+.filter-btn.active {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+
 /* ── Footer ── */
 footer {
   text-align: center;

@@ -1,3 +1,61 @@
+// Schedule page
+const scheduleBody = document.getElementById('scheduleBody');
+if (scheduleBody) {
+
+  const statusLabels = {
+    'attended':       '<span class="status-attended">Attended</span>',
+    'booked':         '<span class="status-booked">Booked</span>',
+    'noshow':         '<span class="status-noshow">No Show</span>',
+    'cancelled':      '<span class="status-cancelled">Cancelled</span>',
+    'cancelled-late': '<span style="color:#8e44ad;font-weight:bold;">Cancelled Late</span>'
+  };
+
+  let allSessions = [];
+
+  function renderSessions(sessions) {
+    if (!sessions.length) {
+      scheduleBody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:1.5rem;color:var(--text-muted);">No sessions found.</td></tr>';
+      return;
+    }
+    scheduleBody.innerHTML = sessions.map(function (s) {
+      var noteHtml = s.note ? '<br><small style="color:var(--text-muted);">' + s.note + '</small>' : '';
+      return '<tr>' +
+        '<td>' + s.day + '</td>' +
+        '<td>' + s.time + '</td>' +
+        '<td>' + s.room + '</td>' +
+        '<td>' + s.tutor + '</td>' +
+        '<td>' + s.student + noteHtml + '</td>' +
+        '<td>Yr ' + s.year + '</td>' +
+        '<td>' + s.subject + '</td>' +
+        '<td>' + s.duration + '</td>' +
+        '<td>' + (statusLabels[s.status] || s.status) + '</td>' +
+        '</tr>';
+    }).join('');
+  }
+
+  fetch('data/sessions.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      allSessions = data;
+      renderSessions(allSessions);
+    })
+    .catch(function () {
+      scheduleBody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:1.5rem;color:#c0392b;">Could not load sessions.</td></tr>';
+    });
+
+  // Day filter buttons
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var day = btn.getAttribute('data-day');
+      var filtered = day === 'All' ? allSessions : allSessions.filter(function (s) { return s.day === day; });
+      renderSessions(filtered);
+    });
+  });
+}
+
 // Enrolment form validation and interactions
 
 const form = document.getElementById('enrolForm');
