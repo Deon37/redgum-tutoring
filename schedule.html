@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule — Redgum Tutoring</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="index.html">Redgum Tutoring</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="enrol.html">Enrol</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section>
+    <h2>Weekly Schedule</h2>
+    <p>Session schedule for Week 5, Term 3 2026 (11–15 August). All sessions are one-on-one.</p>
+  </section>
+
+  <section>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.25rem;" id="dayFilters">
+      <button class="filter-btn active" data-day="All">All Days</button>
+      <button class="filter-btn" data-day="Tuesday">Tuesday</button>
+      <button class="filter-btn" data-day="Wednesday">Wednesday</button>
+      <button class="filter-btn" data-day="Thursday">Thursday</button>
+      <button class="filter-btn" data-day="Saturday">Saturday</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="scheduleTable">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Room</th>
+            <th>Tutor</th>
+            <th>Student</th>
+            <th>Year</th>
+            <th>Subject</th>
+            <th>Mins</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="scheduleBody">
+          <tr><td colspan="9" style="text-align:center;padding:1.5rem;color:var(--text-muted);">Loading sessions...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Status Key</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;font-size:0.9rem;">
+      <span><span class="status-attended">Attended</span> — session completed</span>
+      <span><span class="status-booked">Booked</span> — upcoming session</span>
+      <span><span class="status-noshow">No Show</span> — student did not attend</span>
+      <span><span class="status-cancelled">Cancelled</span> — cancelled with notice</span>
+      <span style="color:#8e44ad;font-weight:bold;">Cancelled Late</span> — cancelled within 24 hrs (chargeable)</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Redgum Tutoring &middot; 2/112 Limestone Street, Ipswich QLD 4305 &middot; (07) 3812 6640
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
