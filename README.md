@@ -1,21 +1,23 @@
 # Redgum Tutoring
 
-A simple web application for Redgum Tutoring, an after-school tutoring centre in Ipswich, QLD.
+Static web app for Redgum Tutoring, an after-school tutoring centre in Ipswich, QLD. Three pages: a homepage, a student enrolment form, and a weekly schedule view.
 
-## Pages
-
-- **Homepage** (`index.html`) — Centre information, hours, and subjects offered
-- **Enrolment** (`enrol.html`) — Student enrolment form
-- **Schedule** (`schedule.html`) — Weekly session schedule
+Built with plain HTML, CSS, and JavaScript. No build step required.
 
 ## Running locally
 
-Open `index.html` in a browser. No build step or server required.
+Open `index.html` in a browser. The schedule page loads `data/sessions.json` via fetch, so if you open it directly from the file system you may see a CORS error depending on your browser. Running it through a local server avoids this:
+
+```
+npx serve .
+```
+
+Then open `http://localhost:3000`.
 
 ## Deployment
 
-Deployed via Netlify. Configuration in `netlify.toml`.
+Hosted on Netlify. Config is in `netlify.toml`. The Formspree endpoint for the enrolment form is set as an environment variable — see `.env.example` for the variable name.
 
 ## GitHub
 
-Repository: github.com/Deon37/redgum-tutoring
+github.com/Deon37/redgum-tutoring
