@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrol — Redgum Tutoring</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="index.html">Redgum Tutoring</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="enrol.html">Enrol</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section>
+    <h2>Student Enrolment</h2>
+    <p>Fill in the form below to enrol a new student. We will contact the primary guardian to confirm the first session.</p>
+  </section>
+
+  <div class="form-card">
+    <form id="enrolForm" action="https://formspree.io/f/placeholder" method="POST" novalidate>
+
+      <h3 style="font-size:1rem;margin-bottom:1rem;color:var(--green);">Student Details</h3>
+
+      <div class="form-group">
+        <label for="studentName">Full Name <span style="color:#c0392b">*</span></label>
+        <input type="text" id="studentName" name="studentName" placeholder="e.g. Kai Lombardo">
+        <div class="error-msg" id="err-studentName">Please enter the student's full name.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth <span style="color:#c0392b">*</span></label>
+        <input type="date" id="dob" name="dob">
+        <div class="error-msg" id="err-dob">Please enter the student's date of birth.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="yearLevel">Year Level <span style="color:#c0392b">*</span></label>
+        <select id="yearLevel" name="yearLevel">
+          <option value="">Select year level</option>
+          <option value="5">Year 5</option>
+          <option value="6">Year 6</option>
+          <option value="7">Year 7</option>
+          <option value="8">Year 8</option>
+          <option value="9">Year 9</option>
+          <option value="10">Year 10</option>
+          <option value="11">Year 11</option>
+          <option value="12">Year 12</option>
+        </select>
+        <div class="error-msg" id="err-yearLevel">Please select a year level.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="feeRate">Session Rate</label>
+        <input type="text" id="feeRate" name="feeRate" readonly placeholder="Auto-calculated from year level" style="background:#f5f5f3;color:var(--text-muted);">
+      </div>
+
+      <div class="form-group">
+        <label for="school">School <span style="color:#c0392b">*</span></label>
+        <input type="text" id="school" name="school" placeholder="e.g. Willowbank State High School">
+        <div class="error-msg" id="err-school">Please enter the student's school.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="subjects">Subjects Wanted <span style="color:#c0392b">*</span></label>
+        <input type="text" id="subjects" name="subjects" placeholder="e.g. Physics (main), Maths Methods if available">
+        <div class="error-msg" id="err-subjects">Please enter at least one subject.</div>
+      </div>
+
+      <h3 style="font-size:1rem;margin:1.5rem 0 1rem;color:var(--green);">Primary Contact</h3>
+
+      <div class="form-group">
+        <label for="contactName">Full Name <span style="color:#c0392b">*</span></label>
+        <input type="text" id="contactName" name="contactName" placeholder="e.g. Gina Lombardo">
+        <div class="error-msg" id="err-contactName">Please enter the contact's full name.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="relationship">Relationship to Student <span style="color:#c0392b">*</span></label>
+        <select id="relationship" name="relationship">
+          <option value="">Select relationship</option>
+          <option value="mother">Mother</option>
+          <option value="father">Father</option>
+          <option value="guardian">Guardian</option>
+          <option value="other">Other</option>
+        </select>
+        <div class="error-msg" id="err-relationship">Please select a relationship.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number <span style="color:#c0392b">*</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="e.g. 0418 330 297">
+        <div class="error-msg" id="err-phone">Please enter a valid 10-digit Australian phone number.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address <span style="color:#c0392b">*</span></label>
+        <input type="email" id="email" name="email" placeholder="e.g. g.lombardo@email.com">
+        <div class="error-msg" id="err-email">Please enter a valid email address.</div>
+      </div>
+
+      <h3 style="font-size:1rem;margin:1.5rem 0 1rem;color:var(--green);">Secondary Contact <span style="font-weight:normal;color:var(--text-muted);font-size:0.85rem;">(optional)</span></h3>
+
+      <div class="form-group">
+        <label for="contact2Name">Full Name</label>
+        <input type="text" id="contact2Name" name="contact2Name" placeholder="e.g. Frank Lombardo">
+      </div>
+
+      <div class="form-group">
+        <label for="contact2Phone">Phone Number</label>
+        <input type="tel" id="contact2Phone" name="contact2Phone" placeholder="e.g. 0419 774 155">
+        <div class="error-msg" id="err-contact2Phone">Please enter a valid 10-digit phone number.</div>
+      </div>
+
+      <h3 style="font-size:1rem;margin:1.5rem 0 1rem;color:var(--green);">Prepaid Pack</h3>
+
+      <div class="form-group">
+        <label for="prepaid">Would you like to purchase a prepaid pack?</label>
+        <select id="prepaid" name="prepaid">
+          <option value="no">No thanks</option>
+          <option value="yes">Yes — 10 x 1hr sessions (5% off, valid 6 months)</option>
+        </select>
+      </div>
+
+      <div id="prepaidNote" style="display:none;background:var(--green-pale);border-radius:var(--radius);padding:0.75rem 1rem;margin-bottom:1rem;font-size:0.9rem;color:var(--green);">
+        Prepaid pack pricing: Years 5–9: $570 (save $30) &middot; Years 10–12: $684 (save $36). Payment arranged at your first session.
+      </div>
+
+      <button type="submit" class="btn-submit">Submit Enrolment</button>
+
+      <div class="success-msg" id="successMsg">
+        Thank you. Your enrolment has been received. We will be in touch shortly to arrange your first session.
+      </div>
+
+    </form>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 Redgum Tutoring &middot; 2/112 Limestone Street, Ipswich QLD 4305 &middot; (07) 3812 6640
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
